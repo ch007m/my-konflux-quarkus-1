@@ -1,9 +1,8 @@
 # Don't forget to change the .dockerignore
-FROM ghcr.io/carlossg/maven:3.9.8 AS build
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 
 COPY pom.xml .
 COPY src .
-RUN ls -la
 RUN mvn package
 
 FROM registry.access.redhat.com/ubi8/openjdk-21:1.20
